@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/students")
 public class StudentController {
 
     private final StudentService studentService;
@@ -16,15 +15,16 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping()
+    @GetMapping("/students")
     public String listStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
         return "students";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/students/new")
     public String addStudent(Model model){
-        model.addAttribute("student", Student.class);
+        Student student = new Student();
+        model.addAttribute("student", student);
         return "create_student";
     }
 
@@ -34,13 +34,13 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/students/edit/{id}")
     public String editStudentForm(@PathVariable Long id, Model model) {
         model.addAttribute("student", studentService.getStudentById(id));
         return "edit_student";
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/students/{id}")
     public String updateStudent(@PathVariable Long id,
                                 @ModelAttribute("student") Student student,
                                 Model model) {
@@ -57,7 +57,7 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/students/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {
         studentService.deleteStudentById(id);
         return "redirect:/students";
