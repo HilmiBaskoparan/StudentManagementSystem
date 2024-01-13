@@ -8,7 +8,7 @@ public interface StudentService {
 
     List<Student> getAllStudents();
 
-    Student addStudent(Student student);
+    Student saveStudent(Student student);
 
     Student updateStudent(Student student);
 
