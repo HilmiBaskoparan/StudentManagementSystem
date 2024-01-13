@@ -25,7 +25,7 @@ public class StudentController {
     @GetMapping("/add")
     public String addStudent(Model model){
         model.addAttribute("student", Student.class);
-        return "add_student";
+        return "create_student";
     }
 
     @PostMapping()
@@ -57,7 +57,7 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @GetMapping("/students/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {
         studentService.deleteStudentById(id);
         return "redirect:/students";
