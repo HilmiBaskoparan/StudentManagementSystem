@@ -51,7 +51,6 @@ StudentController
 - Java 17
 - Intellij IDEA Ultimate
 - Visual Studio Code
-- Node JS
 - Postman
 
 ---
@@ -61,10 +60,7 @@ StudentController
 - Html5
 - Css3
 - responsive design
-- Js
-- jquery
 - Bootstrap
-- react
 
 
 ---
@@ -79,7 +75,6 @@ StudentController
 ## Libraries
 - Thymeleaf
 - Lombok
-- Validation
 
 ## Database
 - Mysql
